@@ -4,10 +4,25 @@
   become: yes
   become_method: sudo
   tasks:
-    - name: Ensure tomcat is removed
-      yum:
+    - name: Make sure that we can connect to the machine
+      ping:
+
+    - name: Stop Tomcat
+      command: sh /opt/apache-tomcat-7.0.61/bin/shutdown.sh
+      become: true
+      become_user: tomcat
+
+    - name: Remove Tomcat
+      file:
+        path: /opt/apache-tomcat-7.0.61
+        state: absent
+
+    - name: remove user "tomcat"
+      user:
         name: tomcat
         state: absent
 
-  
-  
+    - name: remove group "tomcat"
+      group:
+        name: tomcat
+        state: absent
