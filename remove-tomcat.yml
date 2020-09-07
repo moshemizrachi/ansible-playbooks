@@ -1,7 +1,13 @@
 - name: Remove Tomcat Application server
   hosts: all
+  remote_user: centos
+  become: yes
+  become_method: sudo
   tasks:
     - name: Ensure tomcat is removed
       yum:
         name: tomcat
         state: absent
+
+  
+  
