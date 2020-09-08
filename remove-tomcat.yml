@@ -22,7 +22,7 @@
      #   name: tomcat
       #  state: absent
 
-    - name: remove group "tomcat"
-      group:
-        name: tomcat
-        state: absent
+   # - name: remove group "tomcat"
+    #  group:
+     #   name: tomcat
+      #  state: absent
