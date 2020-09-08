@@ -17,10 +17,10 @@
         path: /opt/apache-tomcat-7.0.61
         state: absent
 
-    - name: remove user "tomcat"
-      user:
-        name: tomcat
-        state: absent
+   # - name: remove user "tomcat"
+    #  user:
+     #   name: tomcat
+      #  state: absent
 
     - name: remove group "tomcat"
       group:
